@@ -1,0 +1,54 @@
+buildscript {
+    ext {
+        kotlin_version = '1.9.0'
+        gradle_version = '8.1.0'
+    }
+
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$gradle_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.google.gms:google-services:4.4.2'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.buildDir = "../build"
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+
+    // Add this block to set JVM target for all subprojects
+    afterEvaluate {
+        project.plugins.withId('org.jetbrains.kotlin.android') {
+            kotlin {
+                jvmToolchain(17)
+            }
+        }
+        project.plugins.withId('com.android.application') {
+            android {
+                compileOptions {
+                    sourceCompatibility JavaVersion.VERSION_17
+                    targetCompatibility JavaVersion.VERSION_17
+                }
+                kotlinOptions {
+                    jvmTarget = '17'
+                }
+            }
+        }
+    }
+
+    project.evaluationDependsOn(":app")
+}
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}

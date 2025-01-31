@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "87563972951",
+    "project_id": "paymatefirbase",
+    "storage_bucket": "paymatefirbase.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:87563972951:android:4354719f36c2bd0d044e12",
+        "android_client_info": {
+          "package_name": "com.paymatefyp.paymatefyp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbpCTERFKarCqxPerQJDw8yfw-EqS-zuM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
